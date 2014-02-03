@@ -2,15 +2,6 @@
 #include <avr/io.h>
 #include <avr/delay.h>
 
-void delay_ms(uint16_t ms) {
-		//while loop that creates a delay for the duration of the millisecond countdown
-        while ( ms ) 
-        {
-                _delay_ms(1);
-                ms--;
-        }
-}
-
 int main (void)
 {
 	//Set PORTC to all outputs
@@ -19,10 +10,10 @@ int main (void)
 	while(1) {
 		PORTC |=(1<<0);
 		//PAUSE 250 miliseconds
-		delay_ms(250);
+		_delay_ms(1000);
 		//turns C0 LOW
 		PORTC &= ~(1 << 0);
 		//PAUSE 250 miliseconds
-		delay_ms(250);
+		_delay_ms(1000);
 	};
 }
